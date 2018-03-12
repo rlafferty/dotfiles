@@ -1,0 +1,18 @@
+[core]
+	excludesfile = /Users/rlafferty/.gitignore
+	editor = atom --wait
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Ross Lafferty
+	email = ross.lafferty@gmail.com
+[color]
+	ui = true
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple
