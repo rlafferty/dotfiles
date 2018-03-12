@@ -16,3 +16,5 @@
 	helper = osxkeychain
 [push]
 	default = simple
+[include]
+    path = ~/.gitconfig.local
