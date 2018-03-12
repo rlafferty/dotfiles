@@ -1,2 +1,4 @@
-UNDOTTED=Brewfile
+HOSTNAME="rlafferty-mpb.local"
+UNDOTTED="Brewfile bin"
+SYMLINK_DIRS="bin"
 

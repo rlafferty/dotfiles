@@ -255,3 +255,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-[>"
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 ":autocmd FileType ruby UltiSnipsAddFiletypes chef.ruby
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LOCAL OVERRIDES
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+cat /etc/shells | grep -i zsh >/dev/null 2>&1
+if [ "$?" -ne 0 ]; then
+    echo "ZSH not found. Installing homebrew.";
+    brew install zsh zsh-completions
+fi
+
+if [ -f "${HOME}/.oh-my-zsh"  ]; then
+    echo "Oh My ZSH not found. Installing oh-my-zsh.";
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
