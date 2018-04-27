@@ -21,7 +21,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws brew colorize common-aliases docker git go history jump rbenv vagrant zsh_reload zsh-completions)
+plugins=(aws brew colorize common-aliases docker git go history jump rvm vagrant zsh_reload zsh-completions)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
@@ -68,4 +68,8 @@ ensure_tmux_is_running
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Local config
+#export PATH="${PATH}:${HOME}/bin"
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

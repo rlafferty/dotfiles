@@ -1,6 +1,6 @@
 [core]
 	excludesfile = /Users/rlafferty/.gitignore
-	editor = atom --wait
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -18,3 +18,5 @@
 	default = simple
 [include]
     path = ~/.gitconfig.local
+[url "git@github.com:"]
+	insteadOf = https://github.com/
