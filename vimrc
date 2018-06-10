@@ -38,7 +38,7 @@ syntax on
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 " Strip trailing whitespace on ruby save
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
-autocmd FileType javascript setlocal expandtab=4 shiftwidth=4 tabstop=4
+autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
 autocmd BufNewFile,BufRead *.template set syntax=json
@@ -127,6 +127,8 @@ Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Pretty icons for filetypes
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -243,6 +245,7 @@ colorscheme jellybeans
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AIRLINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline_powerline_fonts = 1
 let g:airline_theme='jellybeans'
 let g:airline_section_y = airline#section#create(['%{rvm#statusline()}'])
 
