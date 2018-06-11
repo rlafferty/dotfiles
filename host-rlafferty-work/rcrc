@@ -1,0 +1,3 @@
+HOSTNAME="rlafferty-work"
+UNDOTTED="Brewfile bin"
+SYMLINK_DIRS="bin"

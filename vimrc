@@ -39,7 +39,7 @@ autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 " Strip trailing whitespace on ruby save
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 expandtab
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
 autocmd BufNewFile,BufRead *.template set syntax=json
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
@@ -101,6 +101,8 @@ Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 Plug 'tpope/vim-rvm'
+Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+Plug 'jgdavey/tslime.vim'
 
 " Linting
 Plug 'w0rp/ale'
@@ -116,6 +118,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " git integration
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " DASH integration
 Plug 'rizzatti/dash.vim'
@@ -260,7 +263,20 @@ let g:UltiSnipsJumpForwardTrigger="<c-]>"
 let g:UltiSnipsJumpBackwardTrigger="<c-[>"
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-":autocmd FileType ruby UltiSnipsAddFiletypes chef.ruby
+:autocmd FileType ruby UltiSnipsAddFiletypes chef.ruby
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM-RSPEC CONFIGURATION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" send output to tmux
+let g:tslime_always_current_session = 1 
+let g:tslime_always_current_window = 1
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+" vim-rspec mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LOCAL OVERRIDES

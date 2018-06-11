@@ -71,6 +71,12 @@ ensure_tmux_is_running
 #export PATH="${PATH}:${HOME}/bin"
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
