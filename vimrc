@@ -17,7 +17,7 @@ set history=50
 set ruler
 
 " hybrid line number mode
-set relativenumber
+"set relativenumber
 set number
 set numberwidth=1
 
@@ -33,9 +33,12 @@ set expandtab
 
 " Enable highlighting for syntax
 syntax on
+"set ttyfast
+"set lazyredraw
 
 " Language specific indenting configuration
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType sh setlocal expandtab shiftwidth=2 tabstop=2
 " Strip trailing whitespace on ruby save
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 expandtab
