@@ -92,7 +92,7 @@ alias help="tldr"
 
 fo() {
   local out file key
-  IFS=$'\n' out=($(fzf-tmux --preview 'bat --color "always" {}' --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
+  IFS=$'\n' out=($(fzf-tmux -d 25 --preview 'bat --color "always" {}' --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
   key=$(head -1 <<< "$out")
   file=$(head -2 <<< "$out" | tail -1)
   if [ -n "$file" ]; then
