@@ -84,11 +84,21 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # https://remysharp.com/2018/08/23/cli-improved
 alias cat='bat'
 alias ping='prettyping --nolegend'
-alias preview="fzf --preview 'bat --color \"always\" {}'"
-export FZF_DEFAULT_OPTS="--bind 'ctrl-t:execute(vim {1} < /dev/tty)+abort'"
+# alias preview="fzf --preview 'bat --color \"always\" {}'"
+# export FZF_DEFAULT_OPTS="--bind 'ctrl-t:execute(vim {1} < /dev/tty)+abort'"
 alias top="htop"
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias help="tldr"
+
+fo() {
+  local out file key
+  IFS=$'\n' out=($(fzf-tmux --preview 'bat --color "always" {}' --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
+  key=$(head -1 <<< "$out")
+  file=$(head -2 <<< "$out" | tail -1)
+  if [ -n "$file" ]; then
+    [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
+  fi
+}
 
 # because common-aliases does this...
 unalias fd
