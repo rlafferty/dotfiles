@@ -80,6 +80,19 @@ fi
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Aliases to enhance defaults
+# https://remysharp.com/2018/08/23/cli-improved
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+export FZF_DEFAULT_OPTS="--bind 'ctrl-t:execute(vim {1} < /dev/tty)+abort'"
+alias top="htop"
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias help="tldr"
+
+# because common-aliases does this...
+unalias fd
+
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
