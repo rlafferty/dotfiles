@@ -54,6 +54,10 @@ eval "$(direnv hook zsh)"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 alias config="/usr/local/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
 
+# Add bin directory inside of $HOME for scripts
+typeset -aU path
+export PATH="$PATH:$HOME/bin"
+
 # always in tmux config
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
@@ -74,7 +78,6 @@ export FZF_DEFAULT_OPTS='
  --color info:150,prompt:110,spinner:150,pointer:167,marker:174
 '
 
-
 # Local config
 #export PATH="${PATH}:${HOME}/bin"
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
@@ -85,6 +88,7 @@ if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
 else
   compinit -C
 fi
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
