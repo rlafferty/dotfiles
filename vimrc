@@ -85,7 +85,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 " Track the engine.
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
+
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
@@ -260,13 +261,13 @@ let g:airline_section_y = airline#section#create(['%{rvm#statusline()}'])
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-]>"
-let g:UltiSnipsJumpBackwardTrigger="<c-[>"
-
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-:autocmd FileType ruby UltiSnipsAddFiletypes chef.ruby
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsListSnippets="<c-tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-]>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-[>"
+"
+"let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+":autocmd FileType ruby UltiSnipsAddFiletypes chef.ruby
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RSPEC CONFIGURATION
@@ -275,6 +276,7 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:tslime_always_current_session = 1 
 let g:tslime_always_current_window = 1
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+
 " vim-rspec mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
