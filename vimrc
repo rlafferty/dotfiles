@@ -75,6 +75,24 @@ call plug#begin()
 " Sensible Vim plugin
 Plug 'tpope/vim-sensible'
 
+" if you use Vundle, load plugins:
+Plug 'ervandew/supertab'
+Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 " clipboard support
 Plug 'christoomey/vim-system-copy'
 
@@ -83,13 +101,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-
-" Track the engine.
-"Plug 'SirVer/ultisnips'
-
-
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
 
 " Tmux integration
 Plug 'christoomey/vim-tmux-navigator'
@@ -111,8 +122,8 @@ Plug 'jgdavey/tslime.vim'
 " Linting
 Plug 'w0rp/ale'
 " Allow easy jumping between linting errors
-nmap <silent> <C-b> <Plug>(ale_previous_wrap)
-nmap <silent> <C-n> <Plug>(ale_next_wrap)
+"nmap <silent> <C-b> <Plug>(ale_previous_wrap)
+"nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
 " ctrlp fuzzy finder
 Plug 'kien/ctrlp.vim'
@@ -137,6 +148,22 @@ Plug 'vim-airline/vim-airline-themes'
 " Pretty icons for filetypes
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UltiSnips CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-ALE CONFIGURATION
@@ -255,19 +282,6 @@ colorscheme jellybeans
 let g:airline_powerline_fonts = 1
 let g:airline_theme='jellybeans'
 let g:airline_section_y = airline#section#create(['%{rvm#statusline()}'])
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ULTISNIPS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsListSnippets="<c-tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-]>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-[>"
-"
-"let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-":autocmd FileType ruby UltiSnipsAddFiletypes chef.ruby
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RSPEC CONFIGURATION
