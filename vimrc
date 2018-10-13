@@ -57,6 +57,8 @@ autocmd VimResized * :wincmd =
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
+let g:ctrlp_tjump_shortener = ['/home/.*/gems/', '.../']
+
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
 " autocmd InsertLeave * match ExtraWhitespace /\s\+$/
@@ -117,6 +119,7 @@ Plug 'w0rp/ale'
 
 " ctrlp fuzzy finder
 Plug 'kien/ctrlp.vim'
+Plug 'ivalkeen/vim-ctrlp-tjump'
 
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -225,6 +228,11 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
   \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
 \}
+
+nnoremap <leader>] :CtrlPtjump<cr>
+vnoremap <leader>] :CtrlPtjumpVisual<cr>
+let g:ctrlp_tjump_shortener = ['/Users/.*/gems/', '.../']
+
 set wildignore+=*.pyc
 set wildignore+=*.so
 set wildignore+=*.zip
