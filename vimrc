@@ -37,10 +37,10 @@ syntax on
 "set lazyredraw
 
 " Language specific indenting configuration
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+"autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType sh setlocal expandtab shiftwidth=2 tabstop=2
 " Strip trailing whitespace on ruby save
-autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
+"autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 expandtab
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
@@ -83,16 +83,6 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
 " clipboard support
 Plug 'christoomey/vim-system-copy'
 
@@ -106,8 +96,8 @@ Plug 'tpope/vim-repeat'
 Plug 'christoomey/vim-tmux-navigator'
 
 " language syntax and style plugins
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
