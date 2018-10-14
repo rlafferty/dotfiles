@@ -1,0 +1,9 @@
+[user]
+	name = Ross Lafferty
+	email = ross.lafferty@gmail.com
+	signingkey = DD923FB0C8917786
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
+
