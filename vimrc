@@ -146,7 +146,7 @@ call plug#end()
 " YouCompleteMe CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>', '<Enter>']
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:ycm_server_python_interpreter = '/usr/local/bin/python'
@@ -155,10 +155,8 @@ nnoremap <leader>y :call QuickYCMToggle()<cr>
 
 function! QuickYCMToggle()
     if g:ycm_auto_trigger
-        cclose
         let g:ycm_auto_trigger = 0
     else
-        copen
         let g:ycm_auto_trigger = 1
     endif
 endfunction
@@ -307,11 +305,6 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CTAGS CONFIGURATION
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>rt :!ctags --extra=+f --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LOCAL OVERRIDES
