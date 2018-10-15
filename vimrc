@@ -106,7 +106,7 @@ Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
+Plug 'jnwhiteh/vim-golang'
 Plug 'tpope/vim-rvm'
 Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 Plug 'jgdavey/tslime.vim'
@@ -149,6 +149,19 @@ call plug#end()
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>', '<Enter>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_server_python_interpreter = '/usr/local/bin/python'
+let g:ycm_semantic_completion_toggle = '<leader>y'
+nnoremap <leader>y :call QuickYCMToggle()<cr>
+
+function! QuickYCMToggle()
+    if g:ycm_auto_trigger
+        cclose
+        let g:ycm_auto_trigger = 0
+    else
+        copen
+        let g:ycm_auto_trigger = 1
+    endif
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips CONFIGURATION
