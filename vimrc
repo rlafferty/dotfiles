@@ -93,6 +93,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-dispatch'
 
 " Tmux integration
 Plug 'christoomey/vim-tmux-navigator'
@@ -113,9 +114,9 @@ Plug 'jgdavey/tslime.vim'
 
 " Linting
 Plug 'w0rp/ale'
-" Allow easy jumping between linting errors
-"nmap <silent> <C-b> <Plug>(ale_previous_wrap)
-"nmap <silent> <C-n> <Plug>(ale_next_wrap)
+
+" Split and Join lines
+Plug 'AndrewRadev/splitjoin.vim'
 
 " ctrlp fuzzy finder
 Plug 'kien/ctrlp.vim'
@@ -202,6 +203,11 @@ nnoremap <leader>glog :Glog<cr>
 " VIM-GO CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shortcuts for vim-go
+" always use the quickfix preview window style
+let g:go_list_type = "quickfix"
+let g:go_fmt_autosave = 0
+let g:go_fmt_command = "goimports"
+
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
@@ -212,13 +218,33 @@ function! s:build_go_files()
   endif
 endfunction
 
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
 
 " run :GoRun on a go file
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>gr  <Plug>(go-run)
+
+" run :GoTest on a go file
+autocmd FileType go nmap <leader>gt  <Plug>(go-test)
 
 " toggle :GoCoverageToggle to show test coverage
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>gc <Plug>(go-coverage-toggle)
+
+function! QuickFix_toggle()
+    for i in range(1, winnr('$'))
+        let bnum = winbufnr(i)
+        if getbufvar(bnum, '&buftype') == 'quickfix'
+            cclose
+            return
+        endif
+    endfor
+
+    copen
+endfunction
+
+nnoremap <silent> coq :call QuickFix_toggle()<cr>
+
+map <C-n> :lnext<CR>
+map <C-m> :lprevious<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTRLP CONFIGURUATION
