@@ -337,7 +337,7 @@ let g:airline_section_y = airline#section#create(['%{rvm#statusline()}'])
 " VIM-RSPEC CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " send output to tmux
-let g:tslime_always_current_session = 1 
+let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 
