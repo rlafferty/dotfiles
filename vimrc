@@ -51,7 +51,7 @@ syntax on
 "autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType sh setlocal expandtab shiftwidth=2 tabstop=2
 " Strip trailing whitespace on ruby save
-"autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType ruby,go,yaml,json,vim autocmd BufWritePre <buffer> %s/\s\+$//e
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 expandtab
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
