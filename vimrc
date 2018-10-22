@@ -8,12 +8,23 @@ filetype plugin on    	      " Enable filetype-specific plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
 set showcmd
+set ttyfast                     " Indicate fast terminal conn for faster redraw
+set ttymouse=xterm2             " Indicate terminal type for mouse codes
+set ttyscroll=3                 " Speedup scrolling
+set autoread                    " Automatically read changed files
+set autoindent                  " Enabile Autoindent
 set cmdheight=1
 set encoding=utf-8
 set mouse=a
 set noswapfile
 set noshowmode
+set ignorecase                  " Search case insensitive...
+set smartcase                   " ... but not it begins with upper case
+set pumheight=10                " Completion window max size
 set history=50
+set nocursorcolumn              " Do not highlight column (speeds up highlighting)
+set nocursorline                " Do not highlight cursor (speeds up highlighting)
+set lazyredraw                  " Wait to redraw
 set ruler
 
 " hybrid line number mode
@@ -107,7 +118,7 @@ Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'jnwhiteh/vim-golang'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-rvm'
 Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 Plug 'jgdavey/tslime.vim'
@@ -190,6 +201,10 @@ endfunction
 
 " Lint only on save
 let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_enter = 0
+"let g:ale_set_highlights = 0
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-FUGITIVE CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
