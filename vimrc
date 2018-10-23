@@ -202,9 +202,9 @@ endfunction
 " Lint only on save
 let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
-"let g:ale_set_highlights = 0
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
+let g:ale_set_highlights = 0
+"highlight clear ALEErrorSign
+"highlight clear ALEWarningSign
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-FUGITIVE CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
