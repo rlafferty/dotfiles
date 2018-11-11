@@ -89,8 +89,6 @@ else
   compinit -C
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 # Aliases to enhance defaults
 # https://remysharp.com/2018/08/23/cli-improved
@@ -118,3 +116,6 @@ unalias fd
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
