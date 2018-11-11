@@ -26,6 +26,7 @@ set nocursorcolumn              " Do not highlight column (speeds up highlightin
 set nocursorline                " Do not highlight cursor (speeds up highlighting)
 set lazyredraw                  " Wait to redraw
 set ruler
+set splitbelow                  " Split windows below current, not above
 
 " hybrid line number mode
 "set relativenumber
