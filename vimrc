@@ -56,6 +56,7 @@ autocmd FileType ruby,go,yaml,json,vim autocmd BufWritePre <buffer> %s/\s\+$//e
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 expandtab
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
+au BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl
 autocmd BufNewFile,BufRead *.template set syntax=json
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
