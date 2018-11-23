@@ -57,6 +57,7 @@ autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 expandtab
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
 au BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl
+autocmd BufNewFile,BufRead *.gohtml UltiSnipsAddFiletypes html
 autocmd BufNewFile,BufRead *.template set syntax=json
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
@@ -222,7 +223,8 @@ nnoremap <leader>glog :Glog<cr>
 " Shortcuts for vim-go
 " always use the quickfix preview window style
 let g:go_list_type = "quickfix"
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
+let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 
 " run :GoBuild or :GoTestCompile based on the go file
