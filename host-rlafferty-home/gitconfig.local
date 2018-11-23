@@ -1,3 +1,5 @@
+[core]
+    excludesfile = /Users/rlafferty/.gitignore_global
 [user]
 	name = Ross Lafferty
 	email = ross.lafferty@gmail.com
