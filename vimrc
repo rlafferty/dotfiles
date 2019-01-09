@@ -93,8 +93,13 @@ Plug 'tpope/vim-sensible'
 
 " if you use Vundle, load plugins:
 Plug 'ervandew/supertab'
-Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
+
+" Neocomplete because YCM is a dawg
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
@@ -158,23 +163,9 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe CONFIGURATION
+" Neocomplete CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:ycm_server_python_interpreter = '/usr/local/bin/python'
-let g:ycm_semantic_completion_toggle = '<leader>y'
-nnoremap <leader>y :call QuickYCMToggle()<cr>
-
-function! QuickYCMToggle()
-    if g:ycm_auto_trigger
-        let g:ycm_auto_trigger = 0
-    else
-        let g:ycm_auto_trigger = 1
-    endif
-endfunction
+let g:deoplete#enable_at_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips CONFIGURATION
