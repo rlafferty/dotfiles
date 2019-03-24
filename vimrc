@@ -127,7 +127,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'tpope/vim-rvm'
 Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 Plug 'jgdavey/tslime.vim'
 
@@ -326,7 +325,7 @@ colorscheme jellybeans
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
 let g:airline_theme='jellybeans'
-let g:airline_section_y = airline#section#create(['%{rvm#statusline()}'])
+"let g:airline_section_y = airline#section#create(['%{s:ruby_version()}'])
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RSPEC CONFIGURATION
