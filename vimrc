@@ -165,6 +165,10 @@ call plug#end()
 " Neocomplete CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 1
+inoremap <silent><expr> <Tab>
+    \ pumvisible() ? "\<C-n>" : deoplete#manual_complete()
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips CONFIGURATION
