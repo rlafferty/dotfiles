@@ -48,11 +48,15 @@ syntax on
 "set ttyfast
 "set lazyredraw
 
+" Make moving to beginning of the line match indentation
+nnoremap 0 ^
+
 " Language specific indenting configuration
 "autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType sh setlocal expandtab shiftwidth=2 tabstop=2
 " Strip trailing whitespace on ruby save
 autocmd FileType ruby,go,yaml,json,vim autocmd BufWritePre <buffer> %s/\s\+$//e
+
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 expandtab
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
@@ -110,9 +114,13 @@ Plug 'christoomey/vim-system-copy'
 " tpope vim plugins
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
+
+" Indentation guidelines
+Plug 'Yggdroot/indentLine'
 
 " Tmux integration
 Plug 'christoomey/vim-tmux-navigator'
