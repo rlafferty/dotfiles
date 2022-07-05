@@ -21,7 +21,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(asdf aws brew colorize common-aliases docker git golang history jump)
+plugins=(asdf aws brew colorize common-aliases docker git history jump)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
